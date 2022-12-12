@@ -1,5 +1,5 @@
 <template>
-  <ion-app>
+  <ion-app class="page">
     <ion-router-outlet />
   </ion-app>
 </template>
@@ -16,3 +16,12 @@ export default defineComponent({
   }
 });
 </script>
+
+<style scoped>
+ .page {
+   margin: 0 auto;
+   max-width: 820px;
+   display: flex;
+   justify-content: center;
+ }
+</style>
