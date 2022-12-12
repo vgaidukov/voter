@@ -1,0 +1,105 @@
+<template>
+  <ion-page>
+    <ion-header :translucent="true">
+      <ion-toolbar>
+        <ion-title>Мой профиль</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content :fullscreen="true">
+      <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-title size="large">Вадим Г.</ion-title>
+          <ion-buttons slot="primary">
+            <ion-button fill="outline" class="profile-edit">
+              Изменить
+              <ion-icon slot="end" :icon="create"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <account-section name="Голосования" class-name="votes-section">
+        <account-section-card color="success" title="Ждут участия" subtitle="Вы еще не голосовали">
+          Card Content
+        </account-section-card>
+        <account-section-card color="warning" title="Инициированы мной" subtitle="Вы организатор голосований">
+          Card Content
+        </account-section-card>
+        <account-section-card color="danger" title="Требуют выполнения" subtitle="Вы назначены исполнителем">
+          Card Content
+        </account-section-card>
+      </account-section>
+
+      <account-section name="Мои сообщества" class-name="my-communities-section">
+        <account-section-card color="primary" title="Рыбинские" subtitle="Братство">
+          Последнее голосование:
+        </account-section-card>
+        <account-section-card color="secondary" title="Московские" subtitle="Товарищество">
+          Количество участников:
+        </account-section-card>
+        <account-section-card color="primary" title="Питерские" subtitle="Коммуна">
+          Card Content
+        </account-section-card>
+      </account-section>
+
+      <account-section name="Все сообщества" class-name="all-communities-section">
+        <scroll-section/>
+      </account-section>
+
+
+    </ion-content>
+  </ion-page>
+</template>
+
+<script lang="ts">
+import {defineComponent} from 'vue';
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonButton,
+  IonButtons,
+  IonIcon,
+} from '@ionic/vue';
+import {create} from 'ionicons/icons';
+
+import AccountSection from '@/components/AccountSection.vue';
+import AccountSectionCard from '@/components/AccountSectionCard.vue';
+import ScrollSection from "@/components/ScrollSection.vue";
+
+export default defineComponent({
+  name: 'Tab1Page',
+  components: {
+    ScrollSection,
+    AccountSection,
+    AccountSectionCard,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonPage,
+    IonButton,
+    IonButtons,
+    IonIcon,
+  },
+  setup() {
+    return {
+      create
+    }
+  }
+});
+</script>
+
+<style scoped>
+/* iOS places the subtitle above the title */
+ion-card-header.ios {
+  display: flex;
+  flex-flow: column-reverse;
+}
+
+.profile-edit {
+  margin: 0 15px 5px 0;
+}
+</style>
