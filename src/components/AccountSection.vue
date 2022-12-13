@@ -57,7 +57,7 @@ ion-card-content {
   font-size: 120%;
 }
 
-@media (orientation: landscape) {
+@media screen and (min-width: 666.98px) {
   .votes-section, .my-communities-section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
