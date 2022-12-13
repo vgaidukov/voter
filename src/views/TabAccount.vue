@@ -6,8 +6,8 @@
         <ion-title class="header__title" size="large">Вадим Г.</ion-title>
         <ion-buttons :collapse="true" slot="primary" class="header__buttons">
           <ion-button class="header__button" fill="outline">
-            <ion-icon slot="end" :icon="create">изменить</ion-icon>
-            Изменить
+            <ion-icon slot="end" :icon="create"></ion-icon>
+            <p class="header__button-label">Изменить</p>
           </ion-button>
         </ion-buttons>
       </ion-toolbar>
@@ -18,7 +18,7 @@
         <ion-toolbar>
           <ion-title size="large">Вадим Г.</ion-title>
           <ion-buttons slot="primary">
-            <ion-button fill="outline" class="сontent-header__button">
+            <ion-button fill="outline" class="content-header__button">
               Изменить
               <ion-icon slot="end" :icon="create"></ion-icon>
             </ion-button>
@@ -111,11 +111,19 @@ ion-card-header.ios {
   font-size: 1.5em;
 }
 
-.header__button, .сontent-header__button {
+.header__button, .content-header__button {
   margin: 0 15px 5px 0;
+}
+
+.header__button.button-outline.ios {
+  --border-style: none;
 }
 
 .header__button.ios {
   margin: 0 12px 0 0;
+}
+
+.ios>.header__button-label {
+  display: none;
 }
 </style>
