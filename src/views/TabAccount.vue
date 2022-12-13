@@ -1,8 +1,8 @@
 <template>
   <ion-page>
 
-    <ion-header :translucent="true" >
-      <ion-toolbar>
+    <ion-header :translucent="true">
+      <ion-toolbar class="header__toolbar">
         <ion-title class="header__title" size="large">Вадим Г.</ion-title>
         <ion-buttons :collapse="true" slot="primary" class="header__buttons">
           <ion-button class="header__button" fill="outline">
