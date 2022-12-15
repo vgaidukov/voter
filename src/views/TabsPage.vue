@@ -3,17 +3,17 @@
     <ion-tabs>
       <ion-router-outlet></ion-router-outlet>
       <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="tab1" href="/tabs/tab1">
+        <ion-tab-button tab="account" href="/tabs/account">
           <ion-icon :icon="personCircleOutline" />
           <ion-label>Профиль</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="tab2" href="/tabs/tab2">
+        <ion-tab-button tab="communities" href="/tabs/communities">
           <ion-icon :icon="peopleOutline" />
           <ion-label>Сообщества</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="tab3" href="/tabs/tab3">
+        <ion-tab-button tab="votes" href="/tabs/votes">
           <ion-icon :icon="checkmarkDoneCircleOutline" />
           <ion-label>Голосования</ion-label>
         </ion-tab-button>
