@@ -8,6 +8,7 @@
         <h3 class="community__title">{{ item }}</h3>
         <p class="community__description">Какая-то общедоступная информация о сообществе</p>
       </div>
+      <slot></slot>
     </ion-item>
   </ion-list>
   <ion-infinite-scroll @ionInfinite="loadData($event)">
@@ -43,7 +44,7 @@ export default defineComponent({
     };
 
     const loadData = (ev: any) => {
-      console.log(ev);
+      // console.log(ev);
       generateItems();
       setTimeout(() => ev.target.complete(), 500);
     };
@@ -64,6 +65,10 @@ export default defineComponent({
 p, h3 {
   margin: 0;
   padding: 0;
+}
+
+ion-item:first-of-type {
+  padding-top: 10px;
 }
 
 .communities {

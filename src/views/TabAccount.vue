@@ -1,6 +1,5 @@
 <template>
   <ion-page>
-
     <ion-header :translucent="true">
       <ion-toolbar class="header__toolbar">
         <ion-title class="header__title" size="large">Вадим Г.</ion-title>
@@ -27,33 +26,34 @@
       </ion-header>
 
       <account-section name="Голосования" class-name="votes-section">
-        <account-section-card color="success" title="Ждут участия" subtitle="Вы еще не голосовали">
+        <account-section-vote-card color="success" title="Ждут участия" subtitle="Вы еще не голосовали">
           Card Content
-        </account-section-card>
-        <account-section-card color="warning" title="Инициированы мной" subtitle="Вы организатор голосований">
+        </account-section-vote-card>
+        <account-section-vote-card color="warning" title="Инициированы мной" subtitle="Вы организатор голосований">
           Card Content
-        </account-section-card>
-        <account-section-card color="danger" title="Требуют выполнения" subtitle="Вы назначены исполнителем">
+        </account-section-vote-card>
+        <account-section-vote-card color="danger" title="Требуют выполнения" subtitle="Вы назначены исполнителем">
           Card Content
-        </account-section-card>
+        </account-section-vote-card>
       </account-section>
 
       <account-section name="Мои сообщества" class-name="my-communities-section">
-        <account-section-card color="primary" title="Рыбинские" subtitle="Братство">
-          Последнее голосование:
-        </account-section-card>
-        <account-section-card color="secondary" title="Московские" subtitle="Товарищество">
-          Количество участников:
-        </account-section-card>
-        <account-section-card color="primary" title="Питерские" subtitle="Коммуна">
-          Card Content
-        </account-section-card>
+        <account-section-community-card
+            v-for="community in communities"
+            :color="community.color"
+            :community="community"
+            v-bind:key="community"
+            :imgSrc="community.imgUrl">
+        </account-section-community-card>
       </account-section>
 
       <account-section name="Все сообщества" class-name="all-communities-section">
-        <scroll-section/>
+        <scroll-section>
+          <ion-button shape="round" fill="clear">
+            <ion-icon slot="icon-only" :icon="addOutline"></ion-icon>
+          </ion-button>
+        </scroll-section>
       </account-section>
-
 
     </ion-content>
   </ion-page>
@@ -71,18 +71,20 @@ import {
   IonButtons,
   IonIcon,
 } from '@ionic/vue';
-import {create} from 'ionicons/icons';
+import {create, addOutline} from 'ionicons/icons';
 
 import AccountSection from '@/components/AccountSection.vue';
-import AccountSectionCard from '@/components/AccountSectionCard.vue';
+import AccountSectionCommunityCard from '@/components/AccountSectionCommunityCard.vue';
 import ScrollSection from "@/components/ScrollSection.vue";
+import AccountSectionVoteCard from "@/components/AccountSectionVoteCard.vue";
 
 export default defineComponent({
-  name: 'Tab1Page',
+  name: 'TabAccount',
   components: {
     ScrollSection,
     AccountSection,
-    AccountSectionCard,
+    AccountSectionVoteCard,
+    AccountSectionCommunityCard,
     IonHeader,
     IonToolbar,
     IonTitle,
@@ -94,13 +96,39 @@ export default defineComponent({
   },
   setup() {
     return {
-      create
+      create,
+      addOutline,
+      communities: [
+        {
+          color: "primary",
+          title: "Рыбинские",
+          subtitle: "Братство",
+          participants: 5,
+          lastVote: "Чо с новым годом?",
+          imgUrl: "https://picsum.photos/500/500?random=121"
+        },
+        {
+          color: "secondary",
+          title: "Московские",
+          subtitle: "Товарищество",
+          participants: 2,
+          lastVote: "Во сколько собираемся в воскр?",
+          imgUrl: "https://picsum.photos/500/500?random=123"
+        },
+        {
+          color: "primary",
+          title: "Питерские",
+          subtitle: "Коммуна",
+          participants: 1,
+          lastVote: "Го по пифку?",
+          imgUrl: "https://picsum.photos/500/500?random=125"
+        }]
     }
-  }
+  },
 });
 </script>
 
-<style scoped>
+<style>
 /* iOS places the subtitle above the title */
 ion-card-header.ios {
   display: flex;
@@ -111,19 +139,37 @@ ion-card-header.ios {
   font-size: 1.5em;
 }
 
-.header__button, .content-header__button {
-  margin: 0 15px 5px 0;
-}
+/*.header__button, .content-header__button {*/
+/*  margin: 0 15px 25px 0;*/
+/*}*/
 
 .header__button.button-outline.ios {
   --border-style: none;
 }
 
-.header__button.ios {
-  margin: 0 12px 0 0;
+ion-button.content-header__button {
+  margin: 0 12px 7px 0;
 }
 
-.ios>.header__button-label {
+.ios > .header__button-label {
   display: none;
 }
+
+/*.img {*/
+/*  position: absolute;*/
+/*  inset: 0 0 0 0;*/
+/*  !*border-radius: 50%;*!*/
+/*  !*overflow: hidden;*!*/
+/*  !*box-shadow: 3px 3px 7px #0d0d0d;*!*/
+/*  z-index: 1;*/
+/*}*/
+
+/*.img::after {*/
+/*  content: "";*/
+/*  position: absolute;*/
+/*  inset: 10px 0 0 0;*/
+/*  background-color: #0d0d0d;*/
+/*  opacity: .8;*/
+/*  z-index: 2;*/
+/*}*/
 </style>

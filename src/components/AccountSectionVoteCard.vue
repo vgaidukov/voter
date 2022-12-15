@@ -1,8 +1,12 @@
 <template>
-  <ion-card class="section-card">
+  <ion-card class="card">
     <ion-card-header>
       <ion-card-title>{{ title }}</ion-card-title>
       <ion-card-subtitle>{{ subtitle }}</ion-card-subtitle>
+      <div class="card__badge">
+<!--        <ion-icon :icon="manOutline"/>-->
+        <ion-icon :icon="mailUnreadOutline"/>
+      </div>
     </ion-card-header>
     <ion-card-content>
       <slot></slot>
@@ -18,14 +22,16 @@ import {
   IonCardHeader,
   IonCardSubtitle,
   IonCardTitle,
+  IonIcon,
 } from '@ionic/vue';
+import {mailUnreadOutline} from 'ionicons/icons';
+
 
 export default defineComponent({
   name: 'AccountSectionCard',
   props: {
     title: String,
     subtitle: String,
-    content: String,
   },
   components: {
     IonCard,
@@ -33,6 +39,12 @@ export default defineComponent({
     IonCardHeader,
     IonCardSubtitle,
     IonCardTitle,
+    IonIcon
+  },
+  setup() {
+    return {
+      mailUnreadOutline
+    }
   }
 });
 </script>
@@ -44,18 +56,36 @@ ion-card-header.ios {
   flex-flow: column-reverse;
 }
 
-.section-card {
+.card {
+  box-shadow: 3px 3px 7px #666666;
+  position: relative;
+  overflow: visible;
+}
+
+.card__badge {
+  position: absolute;
+  top: -10px;
+  right: -7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  color: #0d0d0d;
+  background-color: #5598ff;
+  text-align: center;
+  font-weight: bold;
   box-shadow: 3px 3px 7px #666666;
 }
 
 @media (prefers-color-scheme: dark) {
-  .section-card {
+  .card {
     box-shadow: none;
   }
 }
 
 @media screen and (min-width: 666.98px) {
-
   ion-card-header.ios {
     padding: 20px 20px 0;
   }
@@ -68,10 +98,5 @@ ion-card-header.ios {
   ion-card-subtitle.ios {
     min-height: 28px;
   }
-
-  ion-card-content.md{
-    /*margin-top: 300px;*/
-  }
-
 }
 </style>
