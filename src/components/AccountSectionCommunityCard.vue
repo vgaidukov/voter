@@ -26,7 +26,7 @@ import {
   IonCardTitle,
   IonIcon
 } from '@ionic/vue';
-import { manOutline } from 'ionicons/icons';
+import {manOutline} from 'ionicons/icons';
 
 export default defineComponent({
   name: 'AccountSectionCommunityCard',
@@ -67,10 +67,11 @@ p, ion-icon {
 }
 
 .card {
-  color: white;
-  box-shadow: 3px 3px 7px #666666;
-  z-index: 1;
+  min-height: 140px;
   position: relative;
+  box-shadow: 3px 3px 7px #666666;
+  color: white;
+  z-index: 1;
 }
 
 .card::before {
@@ -94,22 +95,21 @@ p, ion-icon {
 }
 
 .card__badge {
+  width: 40px;
+  height: 40px;
   position: absolute;
   top: 15px;
   right: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  color: #0d0d0d;
   background-color: #e8c205;
+  border-radius: 50%;
+  z-index: 5;
+
   text-align: center;
   font-weight: bold;
-  z-index: 5;
-  /*box-shadow: 3px 3px 3px #757478;*/
-
+  color: #0d0d0d;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -119,7 +119,6 @@ p, ion-icon {
 }
 
 @media screen and (min-width: 666.98px) {
-
   ion-card-header.ios {
     padding: 20px 20px 0;
   }
@@ -131,10 +130,6 @@ p, ion-icon {
 
   ion-card-subtitle.ios {
     min-height: 28px;
-  }
-
-  ion-card-content.md {
-    /*margin-top: 300px;*/
   }
 
   .card__image {

@@ -36,15 +36,19 @@ ion-card-header.ios {
   flex-flow: column-reverse;
 }
 
+ion-toolbar {
+  --background: none;
+}
+
 ion-card {
   position: relative;
 }
 
 ion-badge {
+  padding: 10px;
   position: absolute;
   top: 5px;
   right: 5px;
-  padding: 10px;
   border-radius: 50%;
   opacity: .9;
 }
@@ -54,7 +58,7 @@ ion-card-content {
 }
 
 .section__title {
-  font-size: 120%;
+  font-size: 1.2em;
 }
 
 @media screen and (min-width: 666.98px) {

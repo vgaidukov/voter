@@ -1,16 +1,18 @@
 <template>
   <ion-card class="card">
+    <div class="card__image-container">
+      <img class="card__image" :src="this.$attrs.imgSrc" alt="image"/>
+    </div>
     <ion-card-header>
       <ion-card-title>{{ title }}</ion-card-title>
       <ion-card-subtitle>{{ subtitle }}</ion-card-subtitle>
-      <div class="card__badge">
-<!--        <ion-icon :icon="manOutline"/>-->
-        <ion-icon :icon="mailUnreadOutline"/>
-      </div>
     </ion-card-header>
     <ion-card-content>
       <slot></slot>
     </ion-card-content>
+    <div class="card__badge">
+      <ion-icon :icon="mailUnreadOutline"/>
+    </div>
   </ion-card>
 </template>
 
@@ -57,32 +59,59 @@ ion-card-header.ios {
 }
 
 .card {
-  box-shadow: 3px 3px 7px #666666;
+  min-height: 140px;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.card::before {
+  content: "";
+  background-color: black;
+  position: absolute;
+  inset: 0 0 0 0;
+  opacity: .4;
+  z-index: 3;
+}
+
+.green {
+  box-shadow: 1px 1px 80px green;
+}
+
+.yellow {
+  box-shadow: 0 1px 80px yellow;
+}
+
+.red {
+  box-shadow: 0 1px 80px red;
+}
+
+
+ion-card-header, ion-card-content {
+  z-index: 4;
+}
+
+.card__image {
+  width: 100%;
+  position: absolute;
+  top: -170px;
+  z-index: 2;
 }
 
 .card__badge {
+  width: 30px;
+  height: 30px;
   position: absolute;
-  top: -10px;
-  right: -7px;
+  bottom: 10px;
+  right: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 35px;
-  height: 35px;
   border-radius: 50%;
-  color: #0d0d0d;
-  background-color: #5598ff;
-  text-align: center;
-  font-weight: bold;
-  box-shadow: 3px 3px 7px #666666;
-}
+  z-index: 6;
 
-@media (prefers-color-scheme: dark) {
-  .card {
-    box-shadow: none;
-  }
+  font-size: 1.7em;
+  color: white;
 }
 
 @media screen and (min-width: 666.98px) {
@@ -97,6 +126,10 @@ ion-card-header.ios {
 
   ion-card-subtitle.ios {
     min-height: 28px;
+  }
+
+  .card__image {
+    top: -70px;
   }
 }
 </style>

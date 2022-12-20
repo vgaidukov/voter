@@ -26,13 +26,28 @@
       </ion-header>
 
       <account-section name="Голосования" class-name="votes-section">
-        <account-section-vote-card color="success" title="Ждут участия" subtitle="Вы еще не голосовали">
+        <account-section-vote-card
+            color="primary"
+            class="green"
+            title="Ждут участия"
+            subtitle="Вы еще не голосовали"
+            imgSrc="https://picsum.photos/500/500?random=523">
           Card Content
         </account-section-vote-card>
-        <account-section-vote-card color="warning" title="Инициированы мной" subtitle="Вы организатор голосований">
+        <account-section-vote-card
+            color="secondary"
+            class="yellow"
+            title="Инициированы мной"
+            subtitle="Вы организатор голосований"
+            imgSrc="https://picsum.photos/500/500?random=322">
           Card Content
         </account-section-vote-card>
-        <account-section-vote-card color="danger" title="Требуют выполнения" subtitle="Вы назначены исполнителем">
+        <account-section-vote-card
+            color="tertiary"
+            class="red"
+            title="Требуют выполнения"
+            subtitle="Вы назначены исполнителем"
+            imgSrc="https://picsum.photos/500/500?random=421">
           Card Content
         </account-section-vote-card>
       </account-section>
@@ -48,10 +63,7 @@
       </account-section>
 
       <account-section name="Все сообщества" class-name="all-communities-section">
-        <scroll-section>
-          <ion-button shape="round" fill="clear">
-            <ion-icon slot="icon-only" :icon="addOutline"></ion-icon>
-          </ion-button>
+        <scroll-section class="scroll-section">
         </scroll-section>
       </account-section>
 
@@ -71,7 +83,7 @@ import {
   IonButtons,
   IonIcon,
 } from '@ionic/vue';
-import {create, addOutline} from 'ionicons/icons';
+import {create, addOutline, manOutline} from 'ionicons/icons';
 
 import AccountSection from '@/components/AccountSection.vue';
 import AccountSectionCommunityCard from '@/components/AccountSectionCommunityCard.vue';
@@ -98,6 +110,7 @@ export default defineComponent({
     return {
       create,
       addOutline,
+      manOutline,
       communities: [
         {
           color: "primary",
@@ -116,10 +129,10 @@ export default defineComponent({
           imgUrl: "https://picsum.photos/500/500?random=123"
         },
         {
-          color: "primary",
+          color: "tertiary",
           title: "Питерские",
           subtitle: "Коммуна",
-          participants: 1,
+          participants: 10,
           lastVote: "Го по пифку?",
           imgUrl: "https://picsum.photos/500/500?random=125"
         }]
@@ -128,7 +141,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 /* iOS places the subtitle above the title */
 ion-card-header.ios {
   display: flex;
@@ -138,10 +151,6 @@ ion-card-header.ios {
 .header__title.ios {
   font-size: 1.5em;
 }
-
-/*.header__button, .content-header__button {*/
-/*  margin: 0 15px 25px 0;*/
-/*}*/
 
 .header__button.button-outline.ios {
   --border-style: none;
@@ -155,21 +164,8 @@ ion-button.content-header__button {
   display: none;
 }
 
-/*.img {*/
-/*  position: absolute;*/
-/*  inset: 0 0 0 0;*/
-/*  !*border-radius: 50%;*!*/
-/*  !*overflow: hidden;*!*/
-/*  !*box-shadow: 3px 3px 7px #0d0d0d;*!*/
-/*  z-index: 1;*/
-/*}*/
-
-/*.img::after {*/
-/*  content: "";*/
-/*  position: absolute;*/
-/*  inset: 10px 0 0 0;*/
-/*  background-color: #0d0d0d;*/
-/*  opacity: .8;*/
-/*  z-index: 2;*/
-/*}*/
+.scroll-section {
+  display: flex;
+  margin: auto;
+}
 </style>
