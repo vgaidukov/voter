@@ -6,7 +6,7 @@
         <ion-buttons :collapse="true" slot="primary" class="header__buttons">
           <ion-button class="header__button" fill="outline">
             <ion-icon slot="end" :icon="create"></ion-icon>
-            <p class="header__button-label">Изменить</p>
+<!--            <p class="header__button-label">Изменить</p>-->
           </ion-button>
         </ion-buttons>
       </ion-toolbar>
@@ -18,14 +18,14 @@
           <ion-title size="large">Вадим Г.</ion-title>
           <ion-buttons slot="primary">
             <ion-button fill="outline" class="content-header__button">
-              Изменить
+<!--              Изменить-->
               <ion-icon slot="end" :icon="create"></ion-icon>
             </ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
 
-      <account-section name="Голосования" class-name="votes-section">
+      <account-section name="голосования" class-name="votes-section">
         <account-section-vote-card
             color="primary"
             class="green"
@@ -152,17 +152,18 @@ ion-card-header.ios {
   font-size: 1.5em;
 }
 
-.header__button.button-outline.ios {
+.button-outline {
+/*.header__button.button-outline.ios, .сontent-header__button.button-outline.ios {*/
   --border-style: none;
 }
 
 ion-button.content-header__button {
-  margin: 0 12px 7px 0;
+  margin: 0 12px 10px 0;
 }
 
-.ios > .header__button-label {
-  display: none;
-}
+/*.ios > .header__button-label {*/
+/*  display: none;*/
+/*}*/
 
 .scroll-section {
   display: flex;

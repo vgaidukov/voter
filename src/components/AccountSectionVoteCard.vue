@@ -1,8 +1,6 @@
 <template>
   <ion-card class="card">
-    <div class="card__image-container">
-      <img class="card__image" :src="this.$attrs.imgSrc" alt="image"/>
-    </div>
+    <img class="card__image" :src="this.$attrs.imgSrc" alt="image"/>
     <ion-card-header>
       <ion-card-title>{{ title }}</ion-card-title>
       <ion-card-subtitle>{{ subtitle }}</ion-card-subtitle>
@@ -34,6 +32,7 @@ export default defineComponent({
   props: {
     title: String,
     subtitle: String,
+    // className: String
   },
   components: {
     IonCard,
@@ -62,7 +61,6 @@ ion-card-header.ios {
   min-height: 140px;
   position: relative;
   overflow: hidden;
-  z-index: 1;
 }
 
 .card::before {
@@ -71,34 +69,34 @@ ion-card-header.ios {
   position: absolute;
   inset: 0 0 0 0;
   opacity: .4;
-  z-index: 3;
+  z-index: 2;
 }
 
 .green {
-  box-shadow: 1px 1px 80px green;
+  box-shadow: 0 1px 130px green;
 }
 
 .yellow {
-  box-shadow: 0 1px 80px yellow;
+  box-shadow: 0 1px 130px yellow;
 }
 
 .red {
-  box-shadow: 0 1px 80px red;
+  box-shadow: 0 1px 130px red;
 }
 
-
 ion-card-header, ion-card-content {
-  z-index: 4;
+  z-index: 3;
 }
 
 .card__image {
   width: 100%;
   position: absolute;
   top: -170px;
-  z-index: 2;
+  z-index: 1;
 }
 
 .card__badge {
+  /*padding: 3px;*/
   width: 30px;
   height: 30px;
   position: absolute;
@@ -108,7 +106,7 @@ ion-card-header, ion-card-content {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  z-index: 6;
+  z-index: 3;
 
   font-size: 1.7em;
   color: white;
