@@ -29,7 +29,7 @@ import {
 import {manOutline} from 'ionicons/icons';
 
 export default defineComponent({
-  name: 'AccountSectionCommunityCard',
+  name: 'MyCommunityCard',
   props: {
     community: Object,
   },
@@ -95,7 +95,9 @@ p, ion-icon {
 }
 
 .card__badge {
-  width: 40px;
+  padding: 0 5px;
+  border-radius: 20px;
+  min-width: 40px;
   height: 40px;
   position: absolute;
   top: 15px;
@@ -104,7 +106,6 @@ p, ion-icon {
   justify-content: center;
   align-items: center;
   background-color: #e8c205;
-  border-radius: 50%;
   z-index: 5;
 
   text-align: center;
