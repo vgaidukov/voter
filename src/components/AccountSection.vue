@@ -5,8 +5,6 @@
         <button class="section__title-button">
           {{ name }}
           <ion-icon :icon="caretForwardOutline"></ion-icon>
-<!--          <ion-icon :icon="caretForwardOutline"></ion-icon>-->
-<!--          <ion-icon :icon="caretForwardOutline"></ion-icon>-->
         </button>
       </ion-title>
     </ion-toolbar>
@@ -46,11 +44,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-/*ion-card {*/
-/*  position: relative;*/
-/*  margin: 0;*/
-/*}*/
-
 /* iOS places the subtitle above the title */
 ion-card-header.ios {
   display: flex;
@@ -62,7 +55,6 @@ ion-toolbar {
 }
 
 ion-title {
-  /*display: flex;*/
   padding: 0 20px;
 }
 
@@ -88,9 +80,6 @@ button {
 .section__title-button {
   display: flex;
   padding-top: 15px;
-  /*justify-content: center;*/
-  /*align-items: center;*/
-
 
   text-transform: uppercase;
   letter-spacing: 1px;

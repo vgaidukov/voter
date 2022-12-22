@@ -91,13 +91,12 @@ ion-card-header, ion-card-content {
 .card__image {
   width: 100%;
   position: absolute;
-  top: -170px;
+  top: -70px;
   z-index: 1;
 }
 
 .card__badge {
-  /*padding: 3px;*/
-  width: 30px;
+  width: 50px;
   height: 30px;
   position: absolute;
   bottom: 10px;
