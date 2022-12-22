@@ -21,7 +21,5 @@ export default defineComponent({
  .page {
    margin: 0 auto;
    max-width: 820px;
-   display: flex;
-   justify-content: center;
  }
 </style>
