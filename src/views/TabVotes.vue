@@ -17,18 +17,18 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue';
-import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent} from '@ionic/vue';
+  import {defineComponent} from 'vue';
+  import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent} from '@ionic/vue';
 
-export default defineComponent({
-  name: 'TabVotes',
-  components: {
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonContent,
-    IonPage
-  }
-});
+  export default defineComponent({
+    name: 'TabVotes',
+    components: {
+      IonHeader,
+      IonToolbar,
+      IonTitle,
+      IonContent,
+      IonPage
+    }
+  });
 </script>
 
